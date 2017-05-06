@@ -7,5 +7,5 @@ def get_date_stamp():
     return date_stamp
 
 def get_datetime_stamp():
-    datetime_stamp = time.strftime("%Y-%m-%d-%H-%M-%S")
+    datetime_stamp = time.strftime("%Y-%m-%d %H-%M-%S")
     return datetime_stamp
