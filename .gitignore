@@ -1,2 +1,3 @@
-*.csv
-*.html
+.ipynb_checkpoints/AirLog-checkpoint.ipynb
+.ipynb_checkpoints/AirView-checkpoint.ipynb
+datetime.html
