@@ -1,25 +1,19 @@
-
 # coding: utf-8
-
-# # AirView
-
-# ## plot air voltage signals from a CSV file
-
-# In[18]:
-
-import pandas as pd
+# To run AirView, type in a command window: 
+# bokeh serve --show AirView.py
 import numpy as np
+from bokeh.io import curdoc
+from bokeh.layouts import row, column, widgetbox
+from bokeh.models import ColumnDataSource
+from bokeh.models.widgets import Slider, TextInput
+import pandas as pd
 from bokeh.plotting import figure, output_file, show, output_notebook
 from bokeh.models import DatetimeTickFormatter
 
-graph_title = 'AirView V4.0.6'
+graph_title = 'AirView V4.0.7'
 csv_file_name = '2017-05-16 AirView.csv'
 df = pd.read_csv(csv_file_name, names=['Time', 'Air Voltage (mV)'], 
                  parse_dates=['Time'])
-df
-
-#output_notebook()
-output_file("AirView.html")
 
 p = figure(plot_width=900, plot_height=500, x_axis_type="datetime",
         title=graph_title, 
@@ -39,10 +33,12 @@ p.xaxis[0].formatter = DatetimeTickFormatter(
         )
 
 p.line(df['Time'], df['Air Voltage (mV)'])
-#p.line(df['Time'], df['Air Voltage (mV)'], 
-#       color='black', line_width=1, alpha=0.5)
-
-show(p)
 
 
 
+
+
+
+    
+curdoc().add_root(p)
+curdoc().title = graph_title
