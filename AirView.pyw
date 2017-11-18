@@ -6,15 +6,17 @@
 # 林湧森
 # 2017-11-17 09:52 UTC+8
 
+import pandas as pd
 import tkinter as Tk
 import matplotlib
 matplotlib.use('TkAgg')
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.backends.backend_tkagg import NavigationToolbar2TkAgg
 from matplotlib.figure import Figure
-import pandas as pd
+import matplotlib.pyplot as plt
+plt.style.use('ggplot')
 
-graph_title = 'AirView 5.0.1 宜蘭站 Yilan Station  空氣2號 Air 2 (Arduino Uno + LF298N)'
+graph_title = 'AirView 5.0.2 宜蘭站 Yilan Station  空氣2號 Air 2 (Arduino Uno + LF298N)'
 csv_file_name = '2017-05-16 AirView.csv'
 df = pd.read_csv(csv_file_name, 
                  names=['Time', 'Air Voltage (mV)'], 
@@ -28,7 +30,7 @@ f = Figure(figsize=(9, 5), dpi=100)
 a = f.add_subplot(111)
 
 # 繪製圖形
-a.plot(df['Time'], df['Air Voltage (mV)'])
+a.plot(df['Time'], df['Air Voltage (mV)'], color='black')
 
 # Release memory
 #del df
