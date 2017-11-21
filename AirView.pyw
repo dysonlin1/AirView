@@ -7,7 +7,6 @@
 # 2017-11-17 09:52 UTC+8
 
 import pandas as pd
-import tkinter as Tk
 
 import matplotlib
 matplotlib.use('TkAgg')
@@ -17,21 +16,30 @@ from matplotlib.backends.backend_tkagg import NavigationToolbar2TkAgg
 from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
-
 import matplotlib.font_manager as fm
-my_font = fm.FontProperties(fname='C:\Windows\Fonts\msjh.ttf') # 設定字體
 
-graph_title = 'AirView 5.0.2 宜蘭站 Yilan Station  空氣2號 Air 2 (Arduino Uno + LF298N)'
+import sys
+if sys.version_info[0] < 3:
+    import Tkinter as Tk
+else:
+    import tkinter as Tk
+
+def destroy(e):
+    sys.exit()
+    
+
+graph_title = 'AirView 5.0.4 宜蘭站 空氣2號 Yilan Station Air 2 (Arduino Uno + LF298N)'
 csv_file_name = '2017-05-16 AirView.csv'
 df = pd.read_csv(csv_file_name, 
                  names=['Time', 'Air Voltage (mV)'], 
                  parse_dates=['Time'])
 
 root = Tk.Tk()
-root.title(graph_title)
+root.wm_title(graph_title)
+
 
 # 設定圖形尺寸與解析度
-figure = Figure(figsize=(9, 5), dpi=100)
+figure = Figure(figsize=(10, 5), dpi=100)
 axis1 = figure.add_subplot(111)
 
 # set x and y
@@ -41,6 +49,10 @@ y = df['Air Voltage (mV)']
 # 繪製圖形
 axis1.plot(x, y)
 #axis1.plot(x, y, color='black')
+axis1.set_title(graph_title, fontproperties='SimHei', fontsize=14)
+#axis1.set_title(graph_title, fontproperties='SimHei', fontsize=24)
+axis1.set_xlabel('時間 Time', fontproperties='SimHei')
+axis1.set_ylabel('空氣電壓 Air Voltage (mV)', fontproperties='SimHei')
 
 # Release memory
 #del df
