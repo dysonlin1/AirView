@@ -17,6 +17,7 @@ from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
 import matplotlib.font_manager as fm
+my_font = fm.FontProperties(fname='C:/Windows/Fonts/msyh.ttc')
 
 import sys
 if sys.version_info[0] < 3:
@@ -28,7 +29,7 @@ def destroy(e):
     sys.exit()
     
 
-graph_title = 'AirView 5.0.4 宜蘭站 空氣2號 Yilan Station Air 2 (Arduino Uno + LF298N)'
+graph_title = 'AirView 5.0.5 宜蘭站 空氣2號 Yilan Station Air 2 (Arduino Uno + LF298N)'
 csv_file_name = '2017-05-16 AirView.csv'
 df = pd.read_csv(csv_file_name, 
                  names=['Time', 'Air Voltage (mV)'], 
@@ -49,10 +50,10 @@ y = df['Air Voltage (mV)']
 # 繪製圖形
 axis1.plot(x, y)
 #axis1.plot(x, y, color='black')
-axis1.set_title(graph_title, fontproperties='SimHei', fontsize=14)
+axis1.set_title(graph_title, fontproperties=my_font, fontsize=14)
 #axis1.set_title(graph_title, fontproperties='SimHei', fontsize=24)
-axis1.set_xlabel('時間 Time', fontproperties='SimHei')
-axis1.set_ylabel('空氣電壓 Air Voltage (mV)', fontproperties='SimHei')
+axis1.set_xlabel('時間 Time', fontproperties=my_font)
+axis1.set_ylabel('空氣電壓 Air Voltage (mV)', fontproperties=my_font)
 
 # Release memory
 #del df
