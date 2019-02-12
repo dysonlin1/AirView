@@ -12,7 +12,7 @@ import matplotlib
 matplotlib.use('TkAgg')
 
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-from matplotlib.backends.backend_tkagg import NavigationToolbar2TkAgg
+from matplotlib.backends.backend_tkagg import NavigationToolbar2Tk #Agg
 from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
@@ -29,7 +29,7 @@ def destroy(e):
     sys.exit()
     
 
-graph_title = 'AirView 5.0.5 宜蘭站 空氣2號 Yilan Station Air 2 (Arduino Uno + LF298N)'
+graph_title = 'AirView 5.1 宜蘭站 空氣2號 Yilan Station Air 2 (Arduino Uno + LF298N)'
 csv_file_name = '2017-05-16 AirView.csv'
 df = pd.read_csv(csv_file_name, 
                  names=['Time', 'Air Voltage (mV)'], 
@@ -61,11 +61,13 @@ axis1.set_ylabel('空氣電壓 Air Voltage (mV)', fontproperties=my_font)
 
 # 把繪製的圖形顯示到Tkinter視窗
 canvas = FigureCanvasTkAgg(figure, master=root)
-canvas.show()
+#canvas.show()
+canvas.draw()
 canvas.get_tk_widget().pack(side=Tk.TOP, fill=Tk.BOTH, expand=1)
 
 # 把Matplotlib繪製圖形的工具列顯示到Tkinter視窗
-toolbar = NavigationToolbar2TkAgg(canvas, root)
+#toolbar = NavigationToolbar2TkAgg(canvas, root)
+toolbar = NavigationToolbar2Tk(canvas, root)
 toolbar.update()
 canvas._tkcanvas.pack(side=Tk.TOP, fill=Tk.BOTH, expand=1)
 
