@@ -50,7 +50,7 @@ try:
 
     date_stamp = get_date_stamp()
     #csv_file_name = date_stamp + ' AirView' + '.csv'
-    csv_file_name = '2017-05-16 AirView.csv'
+    csv_file_name = '2019-11-07 AirView.csv'
     print(csv_file_name)
     print('AirLog will run forever.')
     print('If you want to stop AirLog, select Kernel->Interrupt.')
