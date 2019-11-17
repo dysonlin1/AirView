@@ -22,7 +22,7 @@ def get_datetime_stamp():
     datetime_stamp = time.strftime("%Y-%m-%d %H:%M:%S")
     return datetime_stamp
 
-port_name = 'COM3'
+port_name = 'COM4'
 baud = 9600
 timeout = 1
 port = None
@@ -32,7 +32,7 @@ try:
     port = serial.Serial(port_name, baud, timeout=timeout)
     if port is None:
         print('Cannot open the serial port.')
-        print('Please unplug the USB cable and then reconnect Air 2.') 
+        print('Please unplug the USB cable and then reconnect Air 1.') 
     else:
         print(port)
     port.flushInput() # flush serial input buffer, discarding all its contents
@@ -50,7 +50,7 @@ try:
 
     date_stamp = get_date_stamp()
     #csv_file_name = date_stamp + ' AirView' + '.csv'
-    csv_file_name = '2019-11-07 AirView.csv'
+    csv_file_name = '2019-11-17 AirView.csv'
     print(csv_file_name)
     print('AirLog will run forever.')
     print('If you want to stop AirLog, select Kernel->Interrupt.')

@@ -1,4 +1,4 @@
-# AirView
+# AirView 5.1 
 # plot air voltage signals from a CSV file
 # with Matplotlib and tkinter
 #
@@ -29,8 +29,8 @@ def destroy(e):
     sys.exit()
     
 
-graph_title = 'AirView 5.1 宜蘭站 空氣2號 Yilan Station Air 2 (Arduino Uno + TL081)'
-csv_file_name = '2019-11-07 AirView.csv'
+graph_title = '宜蘭站 Yilan Station 空氣1號 Air 1 (Arduino Uno + TL081)'
+csv_file_name = '2019-11-17 AirView.csv'
 df = pd.read_csv(csv_file_name, 
                  names=['Time', 'Air Voltage (mV)'], 
                  parse_dates=['Time'])
