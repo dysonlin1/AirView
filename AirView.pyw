@@ -29,8 +29,8 @@ def destroy(e):
     sys.exit()
     
 
-graph_title = '宜蘭站 Yilan Station 空氣1號 Air 1 (Arduino Uno + TL081)'
-csv_file_name = '2019-11-17 AirView.csv'
+graph_title = '宜蘭站 Yilan Station 空氣2號 Air 2 (Arduino Uno + TL081)'
+csv_file_name = '2020-02-03 AirView.csv'
 df = pd.read_csv(csv_file_name, 
                  names=['Time', 'Air Voltage (mV)'], 
                  parse_dates=['Time'])
