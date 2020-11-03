@@ -41,7 +41,8 @@ try:
     # discard firt read: it may be incomplete data
     line = port.readline().decode('utf8')
     print('Discard first read: it may be incomplete data')
-    if line is '':
+    #if line is '':
+    if line == '':
         print('Empty line.')
         air_voltage = float('nan')
     else:
@@ -50,7 +51,7 @@ try:
 
     date_stamp = get_date_stamp()
     #csv_file_name = date_stamp + ' AirView' + '.csv'
-    csv_file_name = '2020-02-03 AirView.csv'
+    csv_file_name = '2020-11-04 AirView.csv'
     print(csv_file_name)
     print('AirLog will run forever.')
     print('If you want to stop AirLog, select Kernel->Interrupt.')
@@ -70,7 +71,8 @@ try:
             buffer_sum = 0
             for i in range(buffer_size):
                 line = port.readline().decode('utf8')
-                if line is '':
+                #if line is '':
+                if line == '':
                     #print('Empty line.')
                     air_voltage = float('nan')
                 else:
